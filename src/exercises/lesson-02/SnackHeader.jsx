@@ -1,7 +1,9 @@
-import React from 'react';
-
 const SnackHeader = () => {
-  return <div>Snack Heading</div>;
+  return (
+    <div>
+      <h1> Snack Heading</h1>
+    </div>
+  );
 };
 
 export default SnackHeader;
