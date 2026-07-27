@@ -13,8 +13,7 @@ export default function BugMutatedState() {
   let [count, setCount] = useState(0);
 
   function handleAdd() {
-    count++;
-    setCount(count);
+    setCount((prev) => prev + 1);
   }
 
   return (
@@ -27,3 +26,7 @@ export default function BugMutatedState() {
 
 // Explanation:
 // (Write your explanation here)
+// The code changed state directly with count ++.
+// State should be treated as read olny, so I used setCount(prev => prev + 1);
+// to give React a new value based on the previous one, letting
+// it detect the change and re-render.
