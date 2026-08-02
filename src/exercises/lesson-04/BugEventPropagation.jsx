@@ -6,7 +6,8 @@ export default function BugEventPropagation() {
     alert("RED BOX CLICKED ❌ Don't show me!");
   }
 
-  function handleInnerClick() {
+  function handleInnerClick(e) {
+    e.stopPropagation();
     alert('Button Clicked ✅');
   }
 
@@ -22,3 +23,7 @@ export default function BugEventPropagation() {
     </>
   );
 }
+// Explanation:
+// without stopPropagation(), a click on the button "bubbles up" to
+// the parent div, that means BOTH alerts fire - the buton's and the red box's
+// stopPropagation() tells the event: "stop here, don't travel up to parent element"
